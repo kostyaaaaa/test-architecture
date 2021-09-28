@@ -1,3 +1,5 @@
+const MarketPlace = require('./MarketPlace');
+
 // abstract class, used for inheritance
 class User {
     constructor({ firstName, lastName, email, password }) {
@@ -5,11 +7,13 @@ class User {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.marketPlace = MarketPlace; // composition
+        this.id = Math.random().toString();
     }
 
     doRequest = (context) => {
         // mock request
-        console.log(`${context} request started`)
+        console.log(`[User] ${this.firstName} ${context}`)
     }
 
     login = () => {
@@ -17,7 +21,7 @@ class User {
     }
  
     logout = () => {
-        this.doRequest('logout');
+        this.doRequest('logout\n');
     }
 }
 

@@ -4,7 +4,8 @@ class Product {
         this.title = title;
         this.description = description;
         this.specifications = specifications;
-        this.id = Math.random(); // unique value
+        this.id = Math.random().toString(); // unique value
+        console.log('[Product] creating new product');
     }
 }
 

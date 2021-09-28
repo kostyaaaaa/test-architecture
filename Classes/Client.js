@@ -8,7 +8,12 @@ class Client extends User {
         // aggregation
     }
 
-    addProductToCart = (product, quantity = 1) => {
+    makeOrder() {
+        this.marketPlace.makeOrder(this.cart.productsList);
+    }
+
+    addProductToCart = (productTitle, quantity = 1) => {
+        const product = this.marketPlace.getProductByTitle(productTitle)
         this.cart.addProduct(product, quantity);
     }
 
